@@ -1,0 +1,13 @@
+{
+  "name": "design-hooks",
+  "version": "0.9.9",
+  "description": "Code examples for book Design React Hooks",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Fang Jin",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.1"
+  }
+}
