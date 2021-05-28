@@ -3,7 +3,7 @@
   "version": "0.9.9",
   "description": "Code examples for book Design React Hooks",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "author": "Fang Jin",
   "license": "ISC",
