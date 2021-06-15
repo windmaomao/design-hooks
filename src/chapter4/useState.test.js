@@ -17,21 +17,23 @@ describe('Use State', () => {
     const _t = () => screen.getByRole('text')
 
     render(<Title log={log} r={r} />)
-    await waitFor(_t)
-    expect(r).toHaveReturnedTimes(1)
+    await waitFor(() => expect(r).toHaveReturnedTimes(1))
     expect(_t()).toHaveValue("")
     
     // first key stroke
     fireEvent.change(_t(), { target: { value: "H" } })
-    await waitFor(_t)
-    expect(r).toHaveReturnedTimes(2)
+    await waitFor(() => expect(r).toHaveReturnedTimes(2))
     expect(_t()).toHaveValue("H")
 
     // second key stroke
     fireEvent.change(_t(), { target: { value: "He" } })
-    await waitFor(_t)
-    expect(r).toHaveReturnedTimes(3)
+    await waitFor(() => expect(r).toHaveReturnedTimes(3))
     expect(_t()).toHaveValue("He")
+
+    // third key stroke
+    fireEvent.change(_t(), { target: { value: "Hel" } })
+    await waitFor(() => expect(r).toHaveReturnedTimes(4))
+    expect(_t()).toHaveValue("Hel")
   })
  
 })

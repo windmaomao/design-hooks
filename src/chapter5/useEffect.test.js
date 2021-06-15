@@ -17,7 +17,8 @@ describe('Use Effect', () => {
     const log = jest.fn(), r = jest.fn()
     const _t = () => screen.getByRole('text')
 
-    render(<Title text="a" log={log} r={r} />)
+    // text "a"
+    const { rerender } = render(<Title text="a" log={log} r={r} />)
     await waitFor(() => expect(r).toHaveReturnedTimes(1))
     expect(r).toHaveBeenLastCalledWith(0)
     
@@ -26,11 +27,16 @@ describe('Use Effect', () => {
     await waitFor(() => expect(r).toHaveReturnedTimes(2))
     expect(r).toHaveBeenLastCalledWith(1)
 
-    // // second key stroke
-    // fireEvent.change(_t(), { target: { value: "He" } })
-    // await waitFor(_t)
-    // expect(r).toHaveReturnedTimes(3)
-    // expect(_t()).toHaveValue("He")
+    // second click
+    fireEvent.click(_t())
+    await waitFor(() => expect(r).toHaveReturnedTimes(3))
+    expect(r).toHaveBeenLastCalledWith(2)
+
+    // text "b"
+    rerender(<Title text="b" log={log} r={r} />)
+    await waitFor(() => expect(r).toHaveReturnedTimes(5))
+    expect(r).toHaveBeenLastCalledWith(0)
+
   })
  
 })
