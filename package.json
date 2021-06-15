@@ -24,7 +24,7 @@
     "styled-components": "^5.3.0"
   },
   "jest": {
-    "verbose": false,
+    "verbose": true,
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "<rootDir>/setupTests.js"
