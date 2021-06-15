@@ -43,14 +43,13 @@ describe('Use State Implementation', () => {
     const log = jest.fn(), r = jest.fn()
     const _t = () => screen.getByRole('text')
 
-    // first render
     CurrentComponent.hookId = 0
     const {rerender} = render(<Title log={log} r={r} />)
     await waitFor(_t)
     expect(r).toHaveReturnedTimes(1)
     expect(_t()).toHaveValue("")
     
-    // second render
+    // first key stroke
     fireEvent.change(_t(), { target: { value: "H" } })
     CurrentComponent.hookId = 0
     rerender(<Title log={log} r={r} />)
@@ -58,7 +57,7 @@ describe('Use State Implementation', () => {
     expect(r).toHaveReturnedTimes(2)
     expect(_t()).toHaveValue("H")
 
-    // third render
+    // second key stroke
     fireEvent.change(_t(), { target: { value: "He" } })
     CurrentComponent.hookId = 0
     rerender(<Title log={log} r={r} />)
