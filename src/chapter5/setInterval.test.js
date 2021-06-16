@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
 
 describe('Use Effect', () => {
-  test('wrong with setInterval', async () => {
+  test('wrong for setInterval', async () => {
     const Title = ({ log, r }) => {
       const [count, setCount] = useState(0)
       useEffect(() => {
@@ -49,7 +49,7 @@ describe('Use Effect', () => {
     expect(log).toHaveBeenLastCalledWith(0)
   })
  
-  test('fix with setInterval', async () => {
+  test('fix for setInterval', async () => {
     const Title = ({ log, r }) => {
       const [count, setCount] = useState(0)
       useEffect(() => {
