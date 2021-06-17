@@ -19,7 +19,7 @@ function _hook(initialValue) {
   return h.value     										 // 3
 }
 
-describe('If in Hook', () => {
+describe('Hook Basics - if', () => {
   beforeEach(() => {
     CurrentComponent.hooks = {}
   })

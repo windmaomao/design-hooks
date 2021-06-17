@@ -1,8 +1,8 @@
 import React from 'react'
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
 
-describe('Generic Hook', () => {
-  test('with two states', async () => {
+describe('Hook Basics', () => {
+  test('implementation', async () => {
     const CurrentComponent = { hooks: {} }
 
     function getHook(id) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
 
-describe('Use Effect', () => {
+describe('Use Effect - setInterval', () => {
   test('wrong for setInterval', async () => {
     const Title = ({ log, r }) => {
       const [count, setCount] = useState(0)

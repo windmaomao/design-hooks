@@ -41,7 +41,7 @@ function runEffects() {
 }
 
 describe('Use Effect', () => {
-  test('our implementation', async () => {
+  test('implementation', async () => {
     const Title = ({ text, log, r }) => {
       useEffect(() => {
         log()

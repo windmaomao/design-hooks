@@ -25,11 +25,11 @@ function _hook(initialValue) {
   return h.arr     					                 // 4
 }
 
-describe('Use State Implementation', () => {
+describe('Use State', () => {
   beforeEach(() => {
     CurrentComponent.hooks = {}
   })
-  test('test drive', async () => {
+  test('implementation', async () => {
     const Title = ({ log, r }) => {
       const [value, setValue] = _hook("")
       const onChange = e => { 

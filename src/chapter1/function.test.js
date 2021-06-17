@@ -11,7 +11,7 @@ const renderComponent = (Component) => {
   return { el, body: el.textContent }
 }
  
-describe('Title component', () => {
+describe('Functional Component', () => {
   test('print Hello World', () => {
     const Comp = () => <div data-testid="test">Hello World</div>
     const { body } = renderComponent(<Comp />)
