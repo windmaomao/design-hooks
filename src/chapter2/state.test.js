@@ -1,8 +1,8 @@
 import React from 'react'
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
 
-describe('Component State', () => {
-  test('button click with no render', async () => {
+describe('Action', () => {
+  test('handle event with event handler', async () => {
     const Title = ({ log, r }) => {
       let count = 0
       const onClick = () => {
@@ -19,6 +19,36 @@ describe('Component State', () => {
       )
     }
     
+    const log = jest.fn(), r = jest.fn()
+    render(<Title log={log} r={r} />)
+    fireEvent.click(screen.getByText('Click'))
+    await waitFor(() => screen.getByTestId('test'))
+    expect(r).toHaveReturnedTimes(1)
+    expect(log).toHaveBeenCalledWith(1)
+    expect(screen.getByTestId('test'))
+      .toHaveTextContent("Hello World+0")
+  })
+
+  test('handle event with persistent variable', async () => {
+    function onClick(count, log) {
+      return () => {
+        count++
+        log(count)
+      }
+    }
+
+    const Title = ({ log, r }) => {
+      let count = 0
+
+      r()
+      return (
+        <>
+          <button onClick={onClick(count, log)}>Click</button>
+          <h1 data-testid="test">Hello World+{count}</h1>
+        </>
+      )
+    }
+
     const log = jest.fn(), r = jest.fn()
     render(<Title log={log} r={r} />)
     fireEvent.click(screen.getByText('Click'))
