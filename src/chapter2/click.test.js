@@ -45,9 +45,9 @@ describe('Click', () => {
       )
     }
 
+    let m = undefined
     const { rerender } = render(<Title />)
 
-    let m = undefined
     function _getM(initialValue) {
       if (m === undefined) m = initialValue
       return m
